@@ -381,12 +381,19 @@
   <ItemGroup>
     <Folder Include="Schema Objects\Storage\Filegroups" />
     <Folder Include="Schema Objects\Storage\Files" />
+    <Folder Include="Schema Objects\Stored Procedures\Users" />
     <Build Include="Schema Objects\Storage\Files\PrimaryFileName.sqlfile.sql" />
     <Build Include="Schema Objects\Storage\Files\PrimaryLogFileName.sqlfile.sql" />
-    <Build Include="Schema Objects\Stored Procedures\Users_Insert.proc.sql">
+    <Build Include="Schema Objects\Stored Procedures\Users\Users_Delete.proc.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Stored Procedures\Users_SelectByKey.proc.sql">
+    <Build Include="Schema Objects\Stored Procedures\Users\Users_Insert.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Stored Procedures\Users\Users_SelectByKey.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Stored Procedures\Users\Users_Update.proc.sql">
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Tables\Keys\Weighted_Problem_Results.Weighted_Problem_Results_Key.pkey.sql">
