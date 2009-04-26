@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
+    <Name>"DatabaseProject"</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{c8619235-8cd6-4829-a69d-467f516f03de}</ProjectGuid>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <DefaultSchemaForUnqualifiedObjects>dbo</DefaultSchemaForUnqualifiedObjects>
+    <EnableCLRIntegration>False</EnableCLRIntegration>
+    <DefaultFileStructure>BySchemaType</DefaultFileStructure>
+    <IncludeSchemaNameInFilename>False</IncludeSchemaNameInFilename>
+    <DoNotUseAlterAssemblyStatementsToUpdateCLRTypes>False</DoNotUseAlterAssemblyStatementsToUpdateCLRTypes>
+    <ProjectVersion>3.5</ProjectVersion>
+    <DefaultDataPath>Undefined</DefaultDataPath>
+    <DefaultSchema>dbo</DefaultSchema>
+    <RootNamespace>TeacherAideDB</RootNamespace>
+    <PreviousProjectVersion>3.5</PreviousProjectVersion>
+    <DSP>Microsoft.Data.Schema.Sql.SqlDsp.Sql100DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <DeployToDatabaseAddToServerExplorer>False</DeployToDatabaseAddToServerExplorer>
+    <DeployToScript>True</DeployToScript>
+    <CatalogPropertiesFile>Properties\Database.sqlsettings</CatalogPropertiesFile>
+    <AllowServerObjects>False</AllowServerObjects>
+    <AllowDatabaseObjects>True</AllowDatabaseObjects>
+    <ModelCollation>1033,CS</ModelCollation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
+    <OutputPath>.\sql\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetConnectionString>Data Source=localhost;Integrated Security=True;Pooling=False</TargetConnectionString>
+    <TargetDatabase>TeacherAide</TargetDatabase>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressWarnings>
+    </SuppressWarnings>
+    <DeploymentConfigFile>Properties\Database.sqldeployment</DeploymentConfigFile>
+    <SqlCommandVariablesFile>Properties\Database.sqlcmdvars</SqlCommandVariablesFile>
+    <DeployToDatabase>True</DeployToDatabase>
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\TeamData\Microsoft.Data.Schema.SqlTasks.targets" />
+  <PropertyGroup>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Schema Objects" />
+    <Folder Include="Schema Objects\Assemblies" />
+    <Folder Include="Schema Objects\Database Triggers" />
+    <Folder Include="Schema Objects\Functions" />
+    <Folder Include="Schema Objects\Security" />
+    <Folder Include="Schema Objects\Security\Roles" />
+    <Folder Include="Schema Objects\Security\Roles\Application Roles" />
+    <Folder Include="Schema Objects\Security\Roles\Database Roles" />
+    <Folder Include="Schema Objects\Security\Schemas" />
+    <Folder Include="Schema Objects\Security\Users" />
+    <Folder Include="Schema Objects\Service Broker" />
+    <Folder Include="Schema Objects\Service Broker\Contracts" />
+    <Folder Include="Schema Objects\Service Broker\Event Notifications" />
+    <Folder Include="Schema Objects\Service Broker\Message Types" />
+    <Folder Include="Schema Objects\Service Broker\Queues" />
+    <Folder Include="Schema Objects\Service Broker\Remote Service Binding" />
+    <Folder Include="Schema Objects\Service Broker\Routes" />
+    <Folder Include="Schema Objects\Service Broker\Services" />
+    <Folder Include="Schema Objects\Storage" />
+    <Folder Include="Schema Objects\Storage\Full Text Catalogs" />
+    <Folder Include="Schema Objects\Storage\Partition Functions" />
+    <Folder Include="Schema Objects\Storage\Partition Schemes" />
+    <Folder Include="Schema Objects\Stored Procedures" />
+    <Folder Include="Schema Objects\Synonyms" />
+    <Folder Include="Schema Objects\Tables" />
+    <Folder Include="Schema Objects\Tables\Constraints" />
+    <Folder Include="Schema Objects\Tables\Indexes" />
+    <Folder Include="Schema Objects\Tables\Keys" />
+    <Folder Include="Schema Objects\Tables\Statistics" />
+    <Folder Include="Schema Objects\Tables\Triggers" />
+    <Folder Include="Schema Objects\Types" />
+    <Folder Include="Schema Objects\Types\User defined Data Types" />
+    <Folder Include="Schema Objects\Types\User defined Types CLR" />
+    <Folder Include="Schema Objects\Types\XML Schema Collections" />
+    <Folder Include="Schema Objects\Views" />
+    <Folder Include="Schema Objects\Views\Indexes" />
+    <Folder Include="Schema Objects\Views\Statistics" />
+    <Folder Include="Schema Objects\Views\Triggers" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Pre-Deployment" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Data Generation Plans" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql">
+      <SubType>Code</SubType>
+    </PreDeploy>
+    <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql">
+      <SubType>Code</SubType>
+    </PostDeploy>
+    <NotInBuild Include="Scripts\Post-Deployment\DatabaseObjectOptions.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Post-Deployment\Permissions.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Post-Deployment\RoleMemberships.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Post-Deployment\RulesAndDefaults.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Post-Deployment\Signatures.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Pre-Deployment\CustomErrors.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Pre-Deployment\EncryptionKeysAndCertificates.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Pre-Deployment\LinkedServers.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Pre-Deployment\Logins.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema Objects\Tables\Active_School_Days.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Assignments.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Assignment_Results.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Assignment_Score_Weights.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Assignment_Types.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Constraints\Even_Weight_Graded_Assignments.Even_Weight_Graded_Assignments$valid_scoring_method_code.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Constraints\Pass_Fail_Assignment_Results.Pass_Fail_Assignment_Results$result_pass_fail.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Constraints\Pass_Fail_Graded_Assignments.Pass_Fail_Graded_Assignments$valid_scoring_method_code.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Constraints\Rubric.Rubric$max_score_upper_range.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Constraints\Rubric.Rubric$score_lower_range_less_than_score_upper_range.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Constraints\Scoring_Methods.Scoring_Methods$valid_scoring_method_codes.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Constraints\Terms.Terms$end_date_after_begin_date.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Constraints\Weighted_Problems.Weighted_Problems$allow_partial_credit_yes_no.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Constraints\Weighted_Problem_Assignment_Results.Weighted_Problem_Assignment_Results$percentage_score_valid_range.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Constraints\Weighted_Problem_Graded_Assignment.Weighted_Problem_Graded_Assignments$valid_scoring_method_code.chkconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Courses.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Course_Enrollees.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Even_Weight_Assignment_Results.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Even_Weight_Graded_Assignments.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Graded_Assignments.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Instructors.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Active_School_Days.Active_School_Days$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Active_School_Days.Active_School_Days$ref$Terms.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Assignments.Assignments$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Assignments.Assignments$ref$Assignment_Types.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Assignments.Assignments$ref$Courses.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Assignment_Results.Assignment_Results$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Assignment_Results.Assignment_Results$ref$Assignments.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Assignment_Results.Assignment_Results$ref$Course_Enrollees.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Assignment_Results.Pass_Fail_Assignment_Results$ref$Assignment_Results.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Assignment_Score_Weights.Assignment_Score_Weights$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Assignment_Score_Weights.Assignment_Score_Weights$ref$Assignment_Types.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Assignment_Score_Weights.Assignment_Score_Weights$ref$Courses.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Assignment_Types.Assignment_Types$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Courses.Courses$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Courses$instructor_user_id$ref$Instructors$ta_user_id.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Courses.Courses$ref$Subjects.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Course_Enrollees.Course_Enrollees$final_grade$ref$Rubric$letter_grade.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Course_Enrollees.Course_Enrollees$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Course_Enrollees.Course_Enrollees$ref$Courses.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Course_Enrollees$student_user_id$ref$Students$ta_user_id.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Course_Enrollees.Course_Enrollees$ref$Terms.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Even_Weight_Assignment_Results.Even_Weight_Assignment_Results$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Even_Weight_Assignment_Results.Even_Weight_Assignment_Results$ref$Assignment_Results.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Even_Weight_Graded_Assignments.Even_Weight_Graded_Assignments$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Even_Weight_Graded_Assignments.Even_Weight_Graded_Assignments$ref$Graded_Assignments.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Graded_Assignments.Graded_Assignments$course_id$assignment_sequence$scoring_method_code$Key.ukey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Graded_Assignments.Graded_Assignments$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Graded_Assignments.Graded_Assignments$ref$Assignments.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Graded_Assignments.Graded_Assignments$ref$Scoring_Methods.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Instructors.Instructors$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Instructors.Instructors$ref$Users.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Pass_Fail_Assignment_Results.Pass_Fail_Assignment_Results$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Pass_Fail_Graded_Assignments.Pass_Fail_Graded_Assignments$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Pass_Fail_Graded_Assignments.Pass_Fail_Graded_Assignments$ref$Graded_Assignments.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Rubric.Rubric$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Scoring_Methods.Scoring_Methods$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Students.Students$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Students.Students$ref$Users.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Subjects.Subjects$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Terms.Terms$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Terms.Terms$ref$Term_Types.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Term_Types.Term_Types$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Users.Users$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Weighted_Problems.Weighted_Problems$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Weighted_Problems.Weighted_Problems$ref$Weighted_Problem_Graded_Assignments.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Weighted_Problem_Assignment_Results.Weighted_Problem_Assignment_Results$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Weighted_Problem_Assignment_Results.Weighted_Problem_Assignment_Results$ref$Assignment_Results.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Weighted_Problem_Graded_Assignments.Weighted_Problem_Graded_Assignments$Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Weighted_Problem_Graded_Assignments.Weighted_Problem_Graded_Assignments$ref$Graded_Assignment.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Pass_Fail_Assignment_Results.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Pass_Fail_Graded_Assignments.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Rubric.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Scoring_Methods.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Students.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Subjects.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Terms.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Term_Types.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Users.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Weighted_Problems.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Weighted_Problem_Assignment_Results.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Weighted_Problem_Graded_Assignments.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <PropertiesFile Include="Properties\Database.sqlsettings" />
+    <PropertiesFile Include="Properties\Database.sqlpermissions" />
+    <PropertiesFile Include="Properties\Database.sqldeployment" />
+    <PropertiesFile Include="Properties\Database.sqlcmdvars" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Schema Objects\Storage\Filegroups" />
+    <Folder Include="Schema Objects\Storage\Files" />
+    <Build Include="Schema Objects\Storage\Files\PrimaryFileName.sqlfile.sql" />
+    <Build Include="Schema Objects\Storage\Files\PrimaryLogFileName.sqlfile.sql" />
+    <Build Include="Schema Objects\Tables\Keys\Weighted_Problem_Results.Weighted_Problem_Results_Key.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Weighted_Problem_Results.Weighted_Problem_Results_ref_Weighted_Problems.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\Weighted_Problem_Results.Weighted_Problem_Results_ref_Weighted_Problem_Assignment_Results.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Weighted_Problem_Results.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+  </ItemGroup>
+</Project>
