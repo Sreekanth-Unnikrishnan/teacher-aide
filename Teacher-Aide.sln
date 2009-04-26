@@ -11,20 +11,49 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User Interfaces", "User Int
 EndProject
 Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "TeacherAideDB", "TeacherAideDB\TeacherAideDB.dbproj", "{C8619235-8CD6-4829-A69D-467F516F03DE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{BD848799-7929-4B48-8495-ECD4D407F29A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeacherAideDB.UnitTests", "TeacherAideDB.UnitTests\TeacherAideDB.UnitTests.csproj", "{1C7AF075-55A8-4F48-92A2-1B0458246378}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{15235E07-617D-4259-8740-29CEEBB9318D}"
+	ProjectSection(SolutionItems) = preProject
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+		Teacher-Aide1.vsmdi = Teacher-Aide1.vsmdi
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Teacher-Aide1.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Default|Any CPU = Default|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8619235-8CD6-4829-A69D-467F516F03DE}.Debug|Any CPU.ActiveCfg = Default|Any CPU
+		{C8619235-8CD6-4829-A69D-467F516F03DE}.Debug|Any CPU.Build.0 = Default|Any CPU
+		{C8619235-8CD6-4829-A69D-467F516F03DE}.Debug|Any CPU.Deploy.0 = Default|Any CPU
 		{C8619235-8CD6-4829-A69D-467F516F03DE}.Default|Any CPU.ActiveCfg = Default|Any CPU
 		{C8619235-8CD6-4829-A69D-467F516F03DE}.Default|Any CPU.Build.0 = Default|Any CPU
 		{C8619235-8CD6-4829-A69D-467F516F03DE}.Default|Any CPU.Deploy.0 = Default|Any CPU
+		{C8619235-8CD6-4829-A69D-467F516F03DE}.Release|Any CPU.ActiveCfg = Default|Any CPU
+		{C8619235-8CD6-4829-A69D-467F516F03DE}.Release|Any CPU.Build.0 = Default|Any CPU
+		{C8619235-8CD6-4829-A69D-467F516F03DE}.Release|Any CPU.Deploy.0 = Default|Any CPU
+		{1C7AF075-55A8-4F48-92A2-1B0458246378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C7AF075-55A8-4F48-92A2-1B0458246378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C7AF075-55A8-4F48-92A2-1B0458246378}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C7AF075-55A8-4F48-92A2-1B0458246378}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{1C7AF075-55A8-4F48-92A2-1B0458246378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C7AF075-55A8-4F48-92A2-1B0458246378}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C8619235-8CD6-4829-A69D-467F516F03DE} = {C294E91B-1391-441E-BA27-5F2E638D6817}
+		{1C7AF075-55A8-4F48-92A2-1B0458246378} = {BD848799-7929-4B48-8495-ECD4D407F29A}
+		{15235E07-617D-4259-8740-29CEEBB9318D} = {BD848799-7929-4B48-8495-ECD4D407F29A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		VisualSVNWorkingCopyRoot = .

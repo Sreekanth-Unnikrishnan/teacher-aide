@@ -383,6 +383,12 @@
     <Folder Include="Schema Objects\Storage\Files" />
     <Build Include="Schema Objects\Storage\Files\PrimaryFileName.sqlfile.sql" />
     <Build Include="Schema Objects\Storage\Files\PrimaryLogFileName.sqlfile.sql" />
+    <Build Include="Schema Objects\Stored Procedures\Users_Insert.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Stored Procedures\Users_SelectByKey.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
     <Build Include="Schema Objects\Tables\Keys\Weighted_Problem_Results.Weighted_Problem_Results_Key.pkey.sql">
       <SubType>Code</SubType>
     </Build>
