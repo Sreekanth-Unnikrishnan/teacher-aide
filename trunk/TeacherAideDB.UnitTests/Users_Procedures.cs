@@ -30,9 +30,9 @@ namespace TeacherAideDB.UnitTests
     }
 
     [TestMethod()]
-    public void Users_Insert()
+    public void Users_CRUD()
     {
-      DatabaseTestActions testActions = this.Users_InsertData;
+      DatabaseTestActions testActions = this.Users_CRUDData;
       // Execute the pre-test script
       // 
       System.Diagnostics.Trace.WriteLineIf((testActions.PretestAction != null), "Executing pre-test script...");
@@ -55,7 +55,7 @@ namespace TeacherAideDB.UnitTests
     /// </summary>
     private void InitializeComponent()
     {
-      Microsoft.Data.Schema.UnitTesting.DatabaseTestAction Users_Insert_TestAction;
+      Microsoft.Data.Schema.UnitTesting.DatabaseTestAction Users_CRUD_TestAction;
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users_Procedures));
       Microsoft.Data.Schema.UnitTesting.Conditions.RowCountCondition newRowReturned;
       Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition checkNetId;
@@ -63,24 +63,45 @@ namespace TeacherAideDB.UnitTests
       Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition checkFirstName;
       Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition checkMiddleName;
       Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition checkNickname;
-      this.Users_InsertData = new Microsoft.Data.Schema.UnitTesting.DatabaseTestActions();
-      Users_Insert_TestAction = new Microsoft.Data.Schema.UnitTesting.DatabaseTestAction();
+      Microsoft.Data.Schema.UnitTesting.Conditions.NotEmptyResultSetCondition updatedRowReturned;
+      Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition checkUpdatedNetId;
+      Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition checkUpdatedLastName;
+      Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition checkUpdatedFirstName;
+      Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition checkUpdatedMiddleName;
+      Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition checkUpdatedNickname;
+      Microsoft.Data.Schema.UnitTesting.Conditions.EmptyResultSetCondition checkDelete;
+      this.Users_CRUDData = new Microsoft.Data.Schema.UnitTesting.DatabaseTestActions();
+      Users_CRUD_TestAction = new Microsoft.Data.Schema.UnitTesting.DatabaseTestAction();
       newRowReturned = new Microsoft.Data.Schema.UnitTesting.Conditions.RowCountCondition();
       checkNetId = new Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition();
       checkLastName = new Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition();
       checkFirstName = new Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition();
       checkMiddleName = new Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition();
       checkNickname = new Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition();
+      updatedRowReturned = new Microsoft.Data.Schema.UnitTesting.Conditions.NotEmptyResultSetCondition();
+      checkUpdatedNetId = new Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition();
+      checkUpdatedLastName = new Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition();
+      checkUpdatedFirstName = new Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition();
+      checkUpdatedMiddleName = new Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition();
+      checkUpdatedNickname = new Microsoft.Data.Schema.UnitTesting.Conditions.ScalarValueCondition();
+      checkDelete = new Microsoft.Data.Schema.UnitTesting.Conditions.EmptyResultSetCondition();
       // 
-      // Users_Insert_TestAction
+      // Users_CRUD_TestAction
       // 
-      Users_Insert_TestAction.Conditions.Add(newRowReturned);
-      Users_Insert_TestAction.Conditions.Add(checkNetId);
-      Users_Insert_TestAction.Conditions.Add(checkLastName);
-      Users_Insert_TestAction.Conditions.Add(checkFirstName);
-      Users_Insert_TestAction.Conditions.Add(checkMiddleName);
-      Users_Insert_TestAction.Conditions.Add(checkNickname);
-      resources.ApplyResources(Users_Insert_TestAction, "Users_Insert_TestAction");
+      Users_CRUD_TestAction.Conditions.Add(newRowReturned);
+      Users_CRUD_TestAction.Conditions.Add(checkNetId);
+      Users_CRUD_TestAction.Conditions.Add(checkLastName);
+      Users_CRUD_TestAction.Conditions.Add(checkFirstName);
+      Users_CRUD_TestAction.Conditions.Add(checkMiddleName);
+      Users_CRUD_TestAction.Conditions.Add(checkNickname);
+      Users_CRUD_TestAction.Conditions.Add(updatedRowReturned);
+      Users_CRUD_TestAction.Conditions.Add(checkUpdatedNetId);
+      Users_CRUD_TestAction.Conditions.Add(checkUpdatedLastName);
+      Users_CRUD_TestAction.Conditions.Add(checkUpdatedFirstName);
+      Users_CRUD_TestAction.Conditions.Add(checkUpdatedMiddleName);
+      Users_CRUD_TestAction.Conditions.Add(checkUpdatedNickname);
+      Users_CRUD_TestAction.Conditions.Add(checkDelete);
+      resources.ApplyResources(Users_CRUD_TestAction, "Users_CRUD_TestAction");
       // 
       // newRowReturned
       // 
@@ -139,11 +160,73 @@ namespace TeacherAideDB.UnitTests
       checkNickname.ResultSet = 1;
       checkNickname.RowNumber = 1;
       // 
-      // Users_InsertData
+      // Users_CRUDData
       // 
-      this.Users_InsertData.PosttestAction = null;
-      this.Users_InsertData.PretestAction = null;
-      this.Users_InsertData.TestAction = Users_Insert_TestAction;
+      this.Users_CRUDData.PosttestAction = null;
+      this.Users_CRUDData.PretestAction = null;
+      this.Users_CRUDData.TestAction = Users_CRUD_TestAction;
+      // 
+      // updatedRowReturned
+      // 
+      updatedRowReturned.Enabled = true;
+      updatedRowReturned.Name = "updatedRowReturned";
+      updatedRowReturned.ResultSet = 2;
+      // 
+      // checkUpdatedNetId
+      // 
+      checkUpdatedNetId.ColumnNumber = 2;
+      checkUpdatedNetId.Enabled = true;
+      checkUpdatedNetId.ExpectedValue = "netid2";
+      checkUpdatedNetId.Name = "checkUpdatedNetId";
+      checkUpdatedNetId.NullExpected = false;
+      checkUpdatedNetId.ResultSet = 2;
+      checkUpdatedNetId.RowNumber = 1;
+      // 
+      // checkUpdatedLastName
+      // 
+      checkUpdatedLastName.ColumnNumber = 3;
+      checkUpdatedLastName.Enabled = true;
+      checkUpdatedLastName.ExpectedValue = "Last2";
+      checkUpdatedLastName.Name = "checkUpdatedLastName";
+      checkUpdatedLastName.NullExpected = false;
+      checkUpdatedLastName.ResultSet = 2;
+      checkUpdatedLastName.RowNumber = 1;
+      // 
+      // checkUpdatedFirstName
+      // 
+      checkUpdatedFirstName.ColumnNumber = 4;
+      checkUpdatedFirstName.Enabled = true;
+      checkUpdatedFirstName.ExpectedValue = "First2";
+      checkUpdatedFirstName.Name = "checkUpdatedFirstName";
+      checkUpdatedFirstName.NullExpected = false;
+      checkUpdatedFirstName.ResultSet = 2;
+      checkUpdatedFirstName.RowNumber = 1;
+      // 
+      // checkUpdatedMiddleName
+      // 
+      checkUpdatedMiddleName.ColumnNumber = 5;
+      checkUpdatedMiddleName.Enabled = true;
+      checkUpdatedMiddleName.ExpectedValue = "N";
+      checkUpdatedMiddleName.Name = "checkUpdatedMiddleName";
+      checkUpdatedMiddleName.NullExpected = false;
+      checkUpdatedMiddleName.ResultSet = 2;
+      checkUpdatedMiddleName.RowNumber = 1;
+      // 
+      // checkUpdatedNickname
+      // 
+      checkUpdatedNickname.ColumnNumber = 6;
+      checkUpdatedNickname.Enabled = true;
+      checkUpdatedNickname.ExpectedValue = "Nick2";
+      checkUpdatedNickname.Name = "checkUpdatedNickname";
+      checkUpdatedNickname.NullExpected = false;
+      checkUpdatedNickname.ResultSet = 2;
+      checkUpdatedNickname.RowNumber = 1;
+      // 
+      // checkDelete
+      // 
+      checkDelete.Enabled = true;
+      checkDelete.Name = "checkDelete";
+      checkDelete.ResultSet = 3;
     }
 
     #endregion
@@ -163,6 +246,6 @@ namespace TeacherAideDB.UnitTests
     //
     #endregion
 
-    private DatabaseTestActions Users_InsertData;
+    private DatabaseTestActions Users_CRUDData;
   }
 }
