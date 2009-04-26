@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{C294E91B-1391-441E-BA27-5F2E638D6817}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access", "Data Access", "{833178C9-1917-47CB-8C86-B7BD6CBF4D1D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{3F1AB5F2-8546-4703-8F70-20A69413E935}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User Interfaces", "User Interfaces", "{528DAA6F-BA48-411A-9D3D-D45701B1C2B2}"
+EndProject
+Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "TeacherAideDB", "TeacherAideDB\TeacherAideDB.dbproj", "{C8619235-8CD6-4829-A69D-467F516F03DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Any CPU = Default|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8619235-8CD6-4829-A69D-467F516F03DE}.Default|Any CPU.ActiveCfg = Default|Any CPU
+		{C8619235-8CD6-4829-A69D-467F516F03DE}.Default|Any CPU.Build.0 = Default|Any CPU
+		{C8619235-8CD6-4829-A69D-467F516F03DE}.Default|Any CPU.Deploy.0 = Default|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C8619235-8CD6-4829-A69D-467F516F03DE} = {C294E91B-1391-441E-BA27-5F2E638D6817}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal
