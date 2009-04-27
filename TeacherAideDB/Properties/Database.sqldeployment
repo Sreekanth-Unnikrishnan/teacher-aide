@@ -4,7 +4,7 @@
   <Properties>
     <AlwaysCreateNewDatabase>false</AlwaysCreateNewDatabase>
     <BlockIncrementalDeploymentIfDataLoss>True</BlockIncrementalDeploymentIfDataLoss>
-    <DeploymentCollationPreference>UseSourceModelCollation</DeploymentCollationPreference>
+    <DeploymentCollationPreference>DontChangeCollations</DeploymentCollationPreference>
     <GenerateDropsIfNotInProject>False</GenerateDropsIfNotInProject>
     <PerformDatabaseBackup>False</PerformDatabaseBackup>
     <SingleUserMode>False</SingleUserMode>
