@@ -18,7 +18,7 @@
     <DatabaseAccess>MULTI_USER</DatabaseAccess>
     <DatabaseChaining>False</DatabaseChaining>
     <DatabaseState>ONLINE</DatabaseState>
-    <DefaultCollation>SQL_Latin1_General_CP1_CS_AS</DefaultCollation>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
     <DefaultCursor>LOCAL</DefaultCursor>
     <EnableFullTextSearch>False</EnableFullTextSearch>
     <NumericRoundAbort>False</NumericRoundAbort>
