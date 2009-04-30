@@ -122,6 +122,9 @@
     <NotInBuild Include="Scripts\Pre-Deployment\Logins.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
+    <DeploymentExtensionConfiguration Include="TeacherAideDB.refactorlog">
+      <SubType>NotInBuild</SubType>
+    </DeploymentExtensionConfiguration>
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schema Objects\Tables\Active_School_Days.table.sql">
@@ -134,9 +137,6 @@
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Tables\Assignment_Score_Weights.table.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Tables\Assignment_Types.table.sql">
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Tables\Constraints\Even_Weight_Graded_Assignments.Even_Weight_Graded_Assignments$valid_scoring_method_code.chkconst.sql">
@@ -181,7 +181,7 @@
     <Build Include="Schema Objects\Tables\Even_Weight_Graded_Assignments.table.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Tables\Graded_Assignments.table.sql">
+    <Build Include="Schema Objects\Tables\Graded_Exercises.table.sql">
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Tables\Instructors.table.sql">
@@ -196,19 +196,10 @@
     <Build Include="Schema Objects\Tables\Keys\Assignments.Assignments$Key.pkey.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Tables\Keys\Assignments.Assignments$ref$Assignment_Types.fkey.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Tables\Keys\Assignments.Assignments$ref$Courses.fkey.sql">
-      <SubType>Code</SubType>
-    </Build>
     <Build Include="Schema Objects\Tables\Keys\Assignment_Results.Assignment_Results$Key.pkey.sql">
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Tables\Keys\Assignment_Results.Assignment_Results$ref$Assignments.fkey.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Tables\Keys\Assignment_Results.Assignment_Results$ref$Course_Enrollees.fkey.sql">
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Tables\Keys\Assignment_Results.Pass_Fail_Assignment_Results$ref$Assignment_Results.fkey.sql">
@@ -217,13 +208,10 @@
     <Build Include="Schema Objects\Tables\Keys\Assignment_Score_Weights.Assignment_Score_Weights$Key.pkey.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Tables\Keys\Assignment_Score_Weights.Assignment_Score_Weights$ref$Assignment_Types.fkey.sql">
+    <Build Include="Schema Objects\Tables\Keys\Assignment_Score_Weights_ref_Exercise_Types.fkey.sql">
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Tables\Keys\Assignment_Score_Weights.Assignment_Score_Weights$ref$Courses.fkey.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Tables\Keys\Assignment_Types.Assignment_Types$Key.pkey.sql">
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Tables\Keys\Courses.Courses$Key.pkey.sql">
@@ -262,16 +250,16 @@
     <Build Include="Schema Objects\Tables\Keys\Even_Weight_Graded_Assignments.Even_Weight_Graded_Assignments$ref$Graded_Assignments.fkey.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Tables\Keys\Graded_Assignments.Graded_Assignments$course_id$assignment_sequence$scoring_method_code$Key.ukey.sql">
+    <Build Include="Schema Objects\Tables\Keys\Graded_Exercises_course_id_assignment_id_scoring_method_code_Key.ukey.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Tables\Keys\Graded_Assignments.Graded_Assignments$Key.pkey.sql">
+    <Build Include="Schema Objects\Tables\Keys\Graded_Exercises.Graded_Exercises_Key.pkey.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Tables\Keys\Graded_Assignments.Graded_Assignments$ref$Assignments.fkey.sql">
+    <Build Include="Schema Objects\Tables\Keys\Graded_Exercises.Graded_Exercises_ref_Assignments.fkey.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Tables\Keys\Graded_Assignments.Graded_Assignments$ref$Scoring_Methods.fkey.sql">
+    <Build Include="Schema Objects\Tables\Keys\Graded_Exercises.Graded_Exercises_ref_Scoring_Methods.fkey.sql">
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Tables\Keys\Instructors.Instructors$Key.pkey.sql">
@@ -381,450 +369,30 @@
   <ItemGroup>
     <Folder Include="Schema Objects\Storage\Filegroups" />
     <Folder Include="Schema Objects\Storage\Files" />
-    <Folder Include="Schema Objects\Stored Procedures\Active_School_Days" />
-    <Folder Include="Schema Objects\Stored Procedures\Assignment_Results" />
-    <Folder Include="Schema Objects\Stored Procedures\Assignment_Score_Weights" />
-    <Folder Include="Schema Objects\Stored Procedures\Assignment_Types" />
-    <Folder Include="Schema Objects\Stored Procedures\Assignments" />
-    <Folder Include="Schema Objects\Stored Procedures\Course_Enrollees" />
-    <Folder Include="Schema Objects\Stored Procedures\Courses" />
-    <Folder Include="Schema Objects\Stored Procedures\Even_Weight_Assignment_Results" />
-    <Folder Include="Schema Objects\Stored Procedures\Even_Weight_Graded_Assignments" />
-    <Folder Include="Schema Objects\Stored Procedures\Graded_Assignments" />
-    <Folder Include="Schema Objects\Stored Procedures\Instructors" />
-    <Folder Include="Schema Objects\Stored Procedures\Weighted_Problems" />
-    <Folder Include="Schema Objects\Stored Procedures\Weighted_Problem_Results" />
-    <Folder Include="Schema Objects\Stored Procedures\Weighted_Problem_Graded_Assignments" />
-    <Folder Include="Schema Objects\Stored Procedures\Weighted_Problem_Assignment_Results" />
-    <Folder Include="Schema Objects\Stored Procedures\Terms" />
-    <Folder Include="Schema Objects\Stored Procedures\Term_Types" />
-    <Folder Include="Schema Objects\Stored Procedures\Subjects" />
-    <Folder Include="Schema Objects\Stored Procedures\Students" />
-    <Folder Include="Schema Objects\Stored Procedures\Scoring_Methods" />
-    <Folder Include="Schema Objects\Stored Procedures\Rubric" />
-    <Folder Include="Schema Objects\Stored Procedures\Pass_Fail_Graded_Assignments" />
-    <Folder Include="Schema Objects\Stored Procedures\Pass_Fail_Assignment_Results" />
-    <Folder Include="Schema Objects\Stored Procedures\Users" />
     <Build Include="Schema Objects\Storage\Files\PrimaryFileName.sqlfile.sql" />
     <Build Include="Schema Objects\Storage\Files\PrimaryLogFileName.sqlfile.sql" />
-    <Build Include="Schema Objects\Stored Procedures\Active_School_Days\Active_School_Days_Delete.proc.sql">
+    <Build Include="Schema Objects\Tables\Exercises.table.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Stored Procedures\Active_School_Days\Active_School_Days_Insert.proc.sql">
+    <Build Include="Schema Objects\Tables\Exercise_Types.table.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Stored Procedures\Active_School_Days\Active_School_Days_SelectAll.proc.sql">
+    <Build Include="Schema Objects\Tables\Keys\Assignments.Assignments_ref_Course_Enrollees.fkey.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Stored Procedures\Active_School_Days\Active_School_Days_Update.proc.sql">
+    <Build Include="Schema Objects\Tables\Keys\Assignments.Assignments_ref_Exercises.fkey.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignments\Assignments_Delete.proc.sql">
+    <Build Include="Schema Objects\Tables\Keys\Exercises.Exercises_Key.pkey.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignments\Assignments_Insert.proc.sql">
+    <Build Include="Schema Objects\Tables\Keys\Exercises.Exercises_ref_Courses.fkey.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignments\Assignments_SelectAll.proc.sql">
+    <Build Include="Schema Objects\Tables\Keys\Exercise_Types.Exercises_ref_Exercise_Types.fkey.sql">
       <SubType>Code</SubType>
     </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignments\Assignments_SelectByCourseId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignments\Assignments_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignments\Assignments_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Results\Assignment_Results_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Results\Assignment_Results_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Results\Assignment_Results_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Results\Assignment_Results_SelectByCourseId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Results\Assignment_Results_SelectByCourseIdAssignmentSeq.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Results\Assignment_Results_SelectByCourseIdAssignmentSeqStudentUserId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Results\Assignment_Results_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Results\Assignment_Results_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Score_Weights\Assignment_Score_Weights_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Score_Weights\Assignment_Score_Weights_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Score_Weights\Assignment_Score_Weights_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Score_Weights\Assignment_Score_Weights_SelectByCourseId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Score_Weights\Assignment_Score_Weights_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Score_Weights\Assignment_Score_Weights_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Types\Assignment_Types_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Types\Assignment_Types_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Types\Assignment_Types_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Types\Assignment_Types_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Assignment_Types\Assignment_Types_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Courses\Courses_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Courses\Courses_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Courses\Courses_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Courses\Courses_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Courses\Courses_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Course_Enrollees\Course_Enrollees_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Course_Enrollees\Course_Enrollees_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Course_Enrollees\Course_Enrollees_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Course_Enrollees\Course_Enrollees_SelectByCourseId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Course_Enrollees\Course_Enrollees_SelectByCourseIdStudentUserId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Course_Enrollees\Course_Enrollees_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Course_Enrollees\Course_Enrollees_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Even_Weight_Assignment_Results\Even_Weight_Assignment_Results_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Even_Weight_Assignment_Results\Even_Weight_Assignment_Results_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Even_Weight_Assignment_Results\Even_Weight_Assignment_Results_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Even_Weight_Assignment_Results\Even_Weight_Assignment_Results_SelectByCourseId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Even_Weight_Assignment_Results\Even_Weight_Assignment_Results_SelectByCourseIdAssignmentSeq.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Even_Weight_Assignment_Results\Even_Weight_Assignment_Results_SelectByCourseIdAssignmentSeqStudentUserId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Even_Weight_Assignment_Results\Even_Weight_Assignment_Results_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Even_Weight_Assignment_Results\Even_Weight_Assignment_Results_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Even_Weight_Graded_Assignments\Even_Weight_Graded_Assignments_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Even_Weight_Graded_Assignments\Even_Weight_Graded_Assignments_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Even_Weight_Graded_Assignments\Even_Weight_Graded_Assignments_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Even_Weight_Graded_Assignments\Even_Weight_Graded_Assignments_SelectByCourseId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Even_Weight_Graded_Assignments\Even_Weight_Graded_Assignments_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Even_Weight_Graded_Assignments\Even_Weight_Graded_Assignments_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Graded_Assignments\Graded_Assignments_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Graded_Assignments\Graded_Assignments_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Graded_Assignments\Graded_Assignments_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Graded_Assignments\Graded_Assignments_SelectByCourseId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Graded_Assignments\Graded_Assignments_SelectByCourseIdAssignmentSeq.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Graded_Assignments\Graded_Assignments_SelectByCourseIdAssignmentSeqScoringMethodCode.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Graded_Assignments\Graded_Assignments_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Graded_Assignments\Graded_Assignments_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Instructors\Instructors_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Instructors\Instructors_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Instructors\Instructors_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Instructors\Instructors_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Instructors\Instructors_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Pass_Fail_Assignment_Results\Pass_Fail_Assignment_Results_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Pass_Fail_Assignment_Results\Pass_Fail_Assignment_Results_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Pass_Fail_Assignment_Results\Pass_Fail_Assignment_Results_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Pass_Fail_Assignment_Results\Pass_Fail_Assignment_Results_SelectByCourseId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Pass_Fail_Assignment_Results\Pass_Fail_Assignment_Results_SelectByCourseIdAssignmentSeq.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Pass_Fail_Assignment_Results\Pass_Fail_Assignment_Results_SelectByCourseIdAssignmentSeqStudentUserId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Pass_Fail_Assignment_Results\Pass_Fail_Assignment_Results_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Pass_Fail_Assignment_Results\Pass_Fail_Assignment_Results_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Pass_Fail_Graded_Assignments\Pass_Fail_Graded_Assignments_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Pass_Fail_Graded_Assignments\Pass_Fail_Graded_Assignments_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Pass_Fail_Graded_Assignments\Pass_Fail_Graded_Assignments_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Pass_Fail_Graded_Assignments\Pass_Fail_Graded_Assignments_SelectByCourseId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Pass_Fail_Graded_Assignments\Pass_Fail_Graded_Assignments_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Pass_Fail_Graded_Assignments\Pass_Fail_Graded_Assignments_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Rubric\Rubric_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Rubric\Rubric_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Rubric\Rubric_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Rubric\Rubric_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Rubric\Rubric_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Scoring_Methods\Scoring_Methods_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Scoring_Methods\Scoring_Methods_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Students\Students_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Students\Students_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Students\Students_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Students\Students_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Students\Students_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Subjects\Subjects_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Subjects\Subjects_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Subjects\Subjects_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Subjects\Subjects_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Subjects\Subjects_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Terms\Terms_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Terms\Terms_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Terms\Terms_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Terms\Terms_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Terms\Terms_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Term_Types\Term_Types_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Term_Types\Term_Types_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Users\Users_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Users\Users_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Users\Users_SelectByKey.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Users\Users_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problems\Weighted_Problems_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problems\Weighted_Problems_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problems\Weighted_Problems_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problems\Weighted_Problems_SelectByCourseId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problems\Weighted_Problems_SelectByCourseIdAssignmentSeq.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problems\Weighted_Problems_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problems\Weighted_Problems_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Assignment_Results\Weighted_Problem_Assignment_Results_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Assignment_Results\Weighted_Problem_Assignment_Results_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Assignment_Results\Weighted_Problem_Assignment_Results_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Assignment_Results\Weighted_Problem_Assignment_Results_SelectByCourseId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Assignment_Results\Weighted_Problem_Assignment_Results_SelectByCourseIdAssignmentSeq.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Assignment_Results\Weighted_Problem_Assignment_Results_SelectByCourseIdAssignmentSeqStudentUserId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Assignment_Results\Weighted_Problem_Assignment_Results_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Assignment_Results\Weighted_Problem_Assignment_Results_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Graded_Assignments\Weighted_Problem_Graded_Assignments_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Graded_Assignments\Weighted_Problem_Graded_Assignments_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Graded_Assignments\Weighted_Problem_Graded_Assignments_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Graded_Assignments\Weighted_Problem_Graded_Assignments_SelectByCourseId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Graded_Assignments\Weighted_Problem_Graded_Assignments_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Graded_Assignments\Weighted_Problem_Graded_Assignments_Update.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Results\Weighted_Problem_Results_Delete.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Results\Weighted_Problem_Results_Insert.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Results\Weighted_Problem_Results_SelectAll.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Results\Weighted_Problem_Results_SelectByCourseId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Results\Weighted_Problem_Results_SelectByCourseIdAssignmentSeq.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Results\Weighted_Problem_Results_SelectByCourseIdAssignmentSeqStudentUserId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Results\Weighted_Problem_Results_SelectByCourseIdAssignmentSeqStudentUserIdTermId.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Results\Weighted_Problem_Results_SelectByID.proc.sql">
-      <SubType>Code</SubType>
-    </Build>
-    <Build Include="Schema Objects\Stored Procedures\Weighted_Problem_Results\Weighted_Problem_Results_Update.proc.sql">
+    <Build Include="Schema Objects\Tables\Keys\Exercise_Types.Exercise_Types_Key.pkey.sql">
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Tables\Keys\Weighted_Problem_Results.Weighted_Problem_Results_Key.pkey.sql">

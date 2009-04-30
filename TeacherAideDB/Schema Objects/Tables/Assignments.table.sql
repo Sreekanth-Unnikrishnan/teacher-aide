@@ -1,8 +1,9 @@
 ﻿CREATE TABLE dbo.Assignments
 (
-	course_id              INT           NOT NULL,
-	assignment_seq         INT           NOT NULL,
-	assignment_name        NVARCHAR(40)  NOT NULL,
-	assignment_description NVARCHAR(MAX) NOT NULL,
-	assignment_type_code   INT           NOT NULL
+  assignment_id   INT      NOT NULL IDENTITY(1,1),
+  course_id       INT      NOT NULL,
+  exercise_seq    INT      NOT NULL,
+	student_user_id INT      NOT NULL,
+	term_id         INT      NOT NULL,
+	due_date        DATETIME NOT NULL
 )

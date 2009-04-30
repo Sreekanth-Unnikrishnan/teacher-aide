@@ -1,5 +1,5 @@
 ﻿   ALTER TABLE dbo.Assignment_Results
 ADD CONSTRAINT Assignment_Results$ref$Assignments
-   FOREIGN KEY (course_id, assignment_seq)
-    REFERENCES dbo.Assignments (course_id, assignment_seq)	
+   FOREIGN KEY (assignment_id)
+    REFERENCES dbo.Assignments (assignment_id)	
 
