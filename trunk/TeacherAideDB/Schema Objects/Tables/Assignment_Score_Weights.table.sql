@@ -1,6 +1,6 @@
-﻿CREATE TABLE dbo.Assignment_Score_Weights
+﻿CREATE TABLE dbo.Exercise_Score_Weights
 (
-	course_id            INT     NOT NULL, 
-	assignment_type_code INT     NOT NULL,
-	score_weight         TINYINT NOT NULL
+	course_id          INT     NOT NULL, 
+	exercise_type_code INT     NOT NULL,
+	score_weight       TINYINT NOT NULL
 )
