@@ -122,9 +122,6 @@
     <NotInBuild Include="Scripts\Pre-Deployment\Logins.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <DeploymentExtensionConfiguration Include="TeacherAideDB.refactorlog">
-      <SubType>NotInBuild</SubType>
-    </DeploymentExtensionConfiguration>
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schema Objects\Tables\Active_School_Days.table.sql">
