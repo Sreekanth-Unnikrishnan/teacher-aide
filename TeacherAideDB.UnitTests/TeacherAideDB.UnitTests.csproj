@@ -45,6 +45,9 @@
   <ItemGroup>
     <Compile Include="DatabaseSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Students_Procedures.cs">
+      <SubType>Designer</SubType>
+    </Compile>
     <Compile Include="Users_Procedures.cs">
       <SubType>Designer</SubType>
     </Compile>
@@ -53,6 +56,9 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Students_Procedures.resx">
+      <DependentUpon>Students_Procedures.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Users_Procedures.resx">
       <DependentUpon>Users_Procedures.cs</DependentUpon>
     </EmbeddedResource>
