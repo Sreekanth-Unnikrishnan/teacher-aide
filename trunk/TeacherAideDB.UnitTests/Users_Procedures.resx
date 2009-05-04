@@ -121,14 +121,14 @@
     <value>DECLARE @ta_user_id INT
 
 EXEC dbo.Users_Insert
+       @ta_user_id OUTPUT,
        'netid',
        'Last',
        'First',
        'M',
-       'Nick',
-       @ta_user_id OUTPUT
+       'Nick'
 
-EXEC dbo.Users_SelectByKey
+EXEC dbo.Users_SelectByID
        @ta_user_id
 
 EXEC dbo.Users_Update
@@ -139,13 +139,13 @@ EXEC dbo.Users_Update
        'N',
        'Nick2'
 
-EXEC dbo.Users_SelectByKey
+EXEC dbo.Users_SelectByID
        @ta_user_id
 
 EXEC dbo.Users_Delete
        @ta_user_id
 
-EXEC dbo.Users_SelectByKey
+EXEC dbo.Users_SelectByID
        @ta_user_id
 </value>
   </data>
