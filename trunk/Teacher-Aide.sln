@@ -21,6 +21,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Teacher-Aide1.vsmdi = Teacher-Aide1.vsmdi
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Structure", "Data.Structure\Data.Structure.csproj", "{C4B28673-68B0-4EE3-9857-8A15FB3508BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Access", "Data.Access\Data.Access.csproj", "{046B2D79-0E21-45E4-8BDE-15C32AF596F3}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Teacher-Aide1.vsmdi
@@ -46,12 +50,26 @@ Global
 		{1C7AF075-55A8-4F48-92A2-1B0458246378}.Default|Any CPU.Build.0 = Debug|Any CPU
 		{1C7AF075-55A8-4F48-92A2-1B0458246378}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C7AF075-55A8-4F48-92A2-1B0458246378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4B28673-68B0-4EE3-9857-8A15FB3508BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4B28673-68B0-4EE3-9857-8A15FB3508BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4B28673-68B0-4EE3-9857-8A15FB3508BA}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4B28673-68B0-4EE3-9857-8A15FB3508BA}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{C4B28673-68B0-4EE3-9857-8A15FB3508BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4B28673-68B0-4EE3-9857-8A15FB3508BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{046B2D79-0E21-45E4-8BDE-15C32AF596F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{046B2D79-0E21-45E4-8BDE-15C32AF596F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{046B2D79-0E21-45E4-8BDE-15C32AF596F3}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{046B2D79-0E21-45E4-8BDE-15C32AF596F3}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{046B2D79-0E21-45E4-8BDE-15C32AF596F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{046B2D79-0E21-45E4-8BDE-15C32AF596F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C8619235-8CD6-4829-A69D-467F516F03DE} = {C294E91B-1391-441E-BA27-5F2E638D6817}
+		{C4B28673-68B0-4EE3-9857-8A15FB3508BA} = {833178C9-1917-47CB-8C86-B7BD6CBF4D1D}
+		{046B2D79-0E21-45E4-8BDE-15C32AF596F3} = {833178C9-1917-47CB-8C86-B7BD6CBF4D1D}
 		{1C7AF075-55A8-4F48-92A2-1B0458246378} = {BD848799-7929-4B48-8495-ECD4D407F29A}
 		{15235E07-617D-4259-8740-29CEEBB9318D} = {BD848799-7929-4B48-8495-ECD4D407F29A}
 	EndGlobalSection
