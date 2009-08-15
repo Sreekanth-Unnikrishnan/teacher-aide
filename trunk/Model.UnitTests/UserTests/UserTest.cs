@@ -77,16 +77,16 @@ namespace Teacher_Aide.Model.UnitTests
         }
 
         /// <summary>
-        ///A test for NickName
+        ///A test for Nickname
         ///</summary>
         [TestMethod()]
-        public void NickNameTest()
+        public void NicknameTest()
         {
             User_Accessor target = new User_Accessor();
             string expected = "nick";
             string actual;
-            target.NickName = expected;
-            actual = target.NickName;
+            target.Nickname = expected;
+            actual = target.Nickname;
             Assert.AreEqual(expected, actual);
         }
 
@@ -156,14 +156,14 @@ namespace Teacher_Aide.Model.UnitTests
             string lastName = "Lastname";
             string firstName = "Firstname";
             string middleName = "Middlename";
-            string nickName = "Nickname";
+            string Nickname = "Nickname";
             User actual;
-            actual = User.CreateUser(networkId, lastName, firstName, middleName, nickName);
+            actual = User.CreateUser(networkId, lastName, firstName, middleName, Nickname);
             Assert.AreEqual(-1, actual.UserId);
             Assert.AreEqual(lastName, actual.LastName);
             Assert.AreEqual(firstName, actual.FirstName);
             Assert.AreEqual(middleName, actual.MiddleName);
-            Assert.AreEqual(nickName, actual.NickName);
+            Assert.AreEqual(Nickname, actual.Nickname);
             Assert.AreEqual(networkId, actual.NetworkId);
         }
     }
