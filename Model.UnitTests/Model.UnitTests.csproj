@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InstructorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserTests\UserTest.cs" />
   </ItemGroup>

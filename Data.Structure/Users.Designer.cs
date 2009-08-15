@@ -248,6 +248,21 @@ namespace Teacher_Aide.Data.Structure {
             base.Tables.Add(this.tableStudents);
             this.tableInstructors = new InstructorsDataTable();
             base.Tables.Add(this.tableInstructors);
+            global::System.Data.ForeignKeyConstraint fkc;
+            fkc = new global::System.Data.ForeignKeyConstraint("Students$ref$Users", new global::System.Data.DataColumn[] {
+                        this.tableUsers.ta_user_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableStudents.ta_user_idColumn});
+            this.tableStudents.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("Instructors$ref$Users", new global::System.Data.DataColumn[] {
+                        this.tableUsers.ta_user_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableInstructors.ta_user_idColumn});
+            this.tableInstructors.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
             this._relationStudents_ref_Users = new global::System.Data.DataRelation("Students$ref$Users", new global::System.Data.DataColumn[] {
                         this.tableUsers.ta_user_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableStudents.ta_user_idColumn}, false);
@@ -1235,22 +1250,22 @@ namespace Teacher_Aide.Data.Structure {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public StudentsRow[] GetStudentsRows() {
-                if ((this.Table.ChildRelations["Students$ref$Users"] == null)) {
-                    return new StudentsRow[0];
-                }
-                else {
-                    return ((StudentsRow[])(base.GetChildRows(this.Table.ChildRelations["Students$ref$Users"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public InstructorsRow[] GetInstructorsRows() {
                 if ((this.Table.ChildRelations["Instructors$ref$Users"] == null)) {
                     return new InstructorsRow[0];
                 }
                 else {
                     return ((InstructorsRow[])(base.GetChildRows(this.Table.ChildRelations["Instructors$ref$Users"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public StudentsRow[] GetStudentsRows() {
+                if ((this.Table.ChildRelations["Students$ref$Users"] == null)) {
+                    return new StudentsRow[0];
+                }
+                else {
+                    return ((StudentsRow[])(base.GetChildRows(this.Table.ChildRelations["Students$ref$Users"])));
                 }
             }
         }
