@@ -6,11 +6,12 @@ using Teacher_Aide.Data.Structure;
 
 namespace Teacher_Aide.Model
 {
-    public class User
+    [type: CLSCompliant(false)]
+    public class User : IDisposable
     {
         private Users _userDataSet;
         private Users.UsersRow _userData;
-        private Users.UsersRow UserData { get { return _userData; } }
+        protected Users.UsersRow UserData { get { return _userData; } }
         public int UserId { get { return this.UserData.ta_user_id; } }
         public string NetworkId
         {
@@ -32,7 +33,7 @@ namespace Teacher_Aide.Model
             get { return this.UserData.middle_name; }
             set { this.UserData.middle_name = value; }
         }
-        public string NickName
+        public string Nickname
         {
             get { return this.UserData.nickname; }
             set { this.UserData.nickname = value; }
@@ -46,15 +47,29 @@ namespace Teacher_Aide.Model
         }
 
         protected internal static User CreateUser(
-            string networkId, string lastName, string firstName, string middleName, string nickName)
+            string networkId, string lastName, string firstName, string middleName, string nickname)
         {
             User newUser = new User();
             newUser.NetworkId = networkId;
             newUser.LastName = lastName;
             newUser.FirstName = firstName;
             newUser.MiddleName = middleName;
-            newUser.NickName = nickName;
+            newUser.Nickname = nickname;
             return newUser;
         }
+        #region IDisposable
+        private bool _disposed;
+        public void Dispose()
+        {
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        private void Dispose(bool disposing)
+        {
+            if (!this._disposed && disposing)
+                _userDataSet.Dispose();
+            this._disposed = true;
+        }
+        #endregion
     }
 }
