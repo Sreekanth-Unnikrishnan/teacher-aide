@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{046B2D79-0E21-45E4-8BDE-15C32AF596F3}</ProjectGuid>
+    <ProjectGuid>{E066D8E8-911A-4A36-937B-D3CE1DF7D211}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Teacher_Aide.Data.Access</RootNamespace>
-    <AssemblyName>Teacher-Aide.Data.Access</AssemblyName>
+    <RootNamespace>Teacher_Aide.Model</RootNamespace>
+    <AssemblyName>Teacher-Aide.Model</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,7 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Users\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data.Access\Data.Access.csproj">
+      <Project>{046B2D79-0E21-45E4-8BDE-15C32AF596F3}</Project>
+      <Name>Data.Access</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.Structure\Data.Structure.csproj">
+      <Project>{C4B28673-68B0-4EE3-9857-8A15FB3508BA}</Project>
+      <Name>Data.Structure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
