@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Teacher_Aide.Data.Structure;
+using DataStructure = Teacher_Aide.Data.Structure;
 
 namespace Teacher_Aide.Model
 {
     [type: CLSCompliant(false)]
     public class User : IDisposable
     {
-        private Users _userDataSet;
-        private Users.UsersRow _userData;
-        protected Users.UsersRow UserData { get { return _userData; } }
+        #region properties
+        private DataStructure.Users _userDataSet;
+        private DataStructure.Users.UsersRow _userData;
+        protected DataStructure.Users.UsersRow UserData { get { return _userData; } }
         public int UserId { get { return this.UserData.ta_user_id; } }
         public string NetworkId
         {
@@ -38,14 +39,16 @@ namespace Teacher_Aide.Model
             get { return this.UserData.nickname; }
             set { this.UserData.nickname = value; }
         }
-
-        private User()
+        #endregion
+        #region Constructors
+        protected User()
         {
-            _userDataSet = new Users();
-            _userData = (Users.UsersRow) _userDataSet.Tables["Users"].NewRow();
+            _userDataSet = new DataStructure.Users();
+            _userData = (DataStructure.Users.UsersRow)_userDataSet.Tables["Users"].NewRow();
             _userData.ta_user_id = -1;
         }
-
+        #endregion
+        #region Factory Methods
         protected internal static User CreateUser(
             string networkId, string lastName, string firstName, string middleName, string nickname)
         {
@@ -57,6 +60,7 @@ namespace Teacher_Aide.Model
             newUser.Nickname = nickname;
             return newUser;
         }
+        #endregion
         #region IDisposable
         private bool _disposed;
         public void Dispose()
