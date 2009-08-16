@@ -86,5 +86,18 @@ namespace Data.Access.Mock.UnitTests
             Assert.AreEqual(1, actual.Instructors.Count);
             Assert.AreEqual("Instr3", actual.Instructors[0].instructor_id);
         }
+        /// <summary>
+        ///A test for GetUsers
+        ///</summary>
+        [TestMethod()]
+        public void GetUsersTest()
+        {
+            UserData target = new UserData();
+            Users actual;
+            actual = target.GetUsers();
+            Assert.AreEqual(5, actual._Users.Count);
+            for (int ii = 0; ii < 5; ii++)
+                Assert.AreEqual(ii + 1, actual._Users[ii].ta_user_id);
+        }
     }
 }
