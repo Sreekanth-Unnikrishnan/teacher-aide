@@ -113,5 +113,19 @@ namespace Data.Access.Mock.UnitTests
             for (int ii = 0; ii < studentIds.Length; ii++)
                 Assert.AreEqual(studentIds[ii], actual._Users[ii].ta_user_id);
         }
+        /// <summary>
+        ///A test for GetInstructors
+        ///</summary>
+        [TestMethod()]
+        public void GetInstructorsTest()
+        {
+            UserData target = new UserData();
+            Users actual;
+            actual = target.GetInstructors();
+            Assert.AreEqual(3, actual._Users.Count);
+            int[] instructorIds = { 1, 2, 5 };
+            for (int ii = 0; ii < instructorIds.Length; ii++)
+                Assert.AreEqual(instructorIds[ii], actual._Users[ii].ta_user_id);
+        }
     }
 }
