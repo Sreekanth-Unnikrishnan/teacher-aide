@@ -11,18 +11,6 @@
     <Shape ID="DesignTable:Instructors" ZOrder="3" X="526" Y="309" Height="111" Width="205" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:Instructors$ref$Users" ZOrder="2" LineWidth="11">
-      <RoutePoints>
-        <Point>
-          <X>548</X>
-          <Y>250</Y>
-        </Point>
-        <Point>
-          <X>548</X>
-          <Y>309</Y>
-        </Point>
-      </RoutePoints>
-    </Connector>
     <Connector ID="DesignRelation:Students$ref$Users" ZOrder="1" LineWidth="11">
       <RoutePoints>
         <Point>
@@ -31,6 +19,18 @@
         </Point>
         <Point>
           <X>407</X>
+          <Y>309</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
+    <Connector ID="DesignRelation:Instructors$ref$Users" ZOrder="2" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>548</X>
+          <Y>250</Y>
+        </Point>
+        <Point>
+          <X>548</X>
           <Y>309</Y>
         </Point>
       </RoutePoints>
