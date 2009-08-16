@@ -13,8 +13,8 @@ namespace Teacher_Aide.Data.Access
         DataStructure.Users GetStudent(int userId);
         DataStructure.Users GetInstructors();
         DataStructure.Users GetInstructor(int userId);
-        DataStructure.Users GetUsers();
         */
+        DataStructure.Users GetUsers();
         DataStructure.Users GetUser(int userId);
     }
 }

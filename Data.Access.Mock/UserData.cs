@@ -30,16 +30,16 @@ namespace Teacher_Aide.Data.Access.Mock
             DataStructure.Users result = new DataStructure.Users();
             return result;
         }
+        */
         public DataStructure.Users GetUsers()
         {
             DataStructure.Users result = new DataStructure.Users();
+            FillUsers(result);
             return result;
         }
-        */
         public DataStructure.Users GetUser(int userId)
         {
             DataStructure.Users result = new DataStructure.Users();
-            //result._Users.Columns["ta_user_id"].AutoIncrement = false;
             FillUser(result, userId);
             return result;
         }
@@ -75,6 +75,11 @@ namespace Teacher_Aide.Data.Access.Mock
                 userInfo.Students.AddStudentsRow(newRow, mockUsers[userIndex, StudentId]);
             if (!string.IsNullOrEmpty(mockUsers[userIndex, InstructorId]))
                 userInfo.Instructors.AddInstructorsRow(newRow, mockUsers[userIndex, InstructorId]);
+        }
+        private void FillUsers(DataStructure.Users userInfo)
+        {
+            for (int ii = 0; ii <= mockUsers.GetUpperBound(0); ii++)
+                FillUser(userInfo, ii + 1);
         }
         #endregion
     }

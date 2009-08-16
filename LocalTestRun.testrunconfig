@@ -4,6 +4,7 @@
   <CodeCoverage enabled="true">
     <Regular>
       <CodeCoverageItem binaryFile="Model\bin\Debug\Teacher-Aide.Model.dll" pdbFile="Model\bin\Debug\Teacher-Aide.Model.pdb" instrumentInPlace="true" />
+      <CodeCoverageItem binaryFile="Data.Access.Mock\bin\Debug\Teacher-Aide.Data.Access.Mock.dll" pdbFile="Data.Access.Mock\bin\Debug\Teacher-Aide.Data.Access.Mock.pdb" instrumentInPlace="true" />
     </Regular>
   </CodeCoverage>
   <TestTypeSpecific>
