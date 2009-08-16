@@ -15,13 +15,12 @@ namespace Teacher_Aide.Data.Access.Mock
             FillUsers(result, UserTypes.Students);
             return result;
         }
-        /*
         public DataStructure.Users GetInstructors()
         {
             DataStructure.Users result = new DataStructure.Users();
+            FillUsers(result, UserTypes.Instructors);
             return result;
         }
-        */
         public DataStructure.Users GetUsers()
         {
             DataStructure.Users result = new DataStructure.Users();
