@@ -8,12 +8,8 @@ namespace Teacher_Aide.Data.Access
 {
     public interface IUserData
     {
-        /*
         DataStructure.Users GetStudents();
-        DataStructure.Users GetStudent(int userId);
-        DataStructure.Users GetInstructors();
-        DataStructure.Users GetInstructor(int userId);
-        */
+        //DataStructure.Users GetInstructors();
         DataStructure.Users GetUsers();
         DataStructure.Users GetUser(int userId);
     }
