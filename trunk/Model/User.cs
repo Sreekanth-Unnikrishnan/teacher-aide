@@ -16,48 +16,49 @@ namespace Teacher_Aide.Model
         public int UserId { get { return this.UserData.ta_user_id; } }
         public string NetworkId
         {
-            get { return this.UserData.network_user_id; }
-            set { this.UserData.network_user_id = value; }
+            get { return UserData.network_user_id; }
+            set { UserData.network_user_id = value; }
         }
         public string LastName
         {
-            get { return this.UserData.last_name; }
-            set { this.UserData.last_name = value; }
+            get { return UserData.last_name; }
+            set { UserData.last_name = value; }
         }
         public string FirstName
         {
-            get { return this.UserData.first_name; }
-            set { this.UserData.first_name = value; }
+            get { return UserData.first_name; }
+            set { UserData.first_name = value; }
         }
         public string MiddleName
         {
-            get { return this.UserData.middle_name; }
-            set { this.UserData.middle_name = value; }
+            get { return UserData.middle_name; }
+            set { UserData.middle_name = value; }
         }
         public string Nickname
         {
-            get { return this.UserData.nickname; }
-            set { this.UserData.nickname = value; }
+            get { return UserData.nickname; }
+            set { UserData.nickname = value; }
         }
         #endregion
         #region Constructors
         protected User()
         {
             _userDataSet = new DataStructure.Users();
-            _userData = (DataStructure.Users.UsersRow)_userDataSet.Tables["Users"].NewRow();
-            _userData.ta_user_id = -1;
+            _userData = _userDataSet._Users.AddUsersRow("", "", "", "", "");
         }
         #endregion
         #region Factory Methods
         protected internal static User CreateUser(
             string networkId, string lastName, string firstName, string middleName, string nickname)
         {
-            User newUser = new User();
-            newUser.NetworkId = networkId;
-            newUser.LastName = lastName;
-            newUser.FirstName = firstName;
-            newUser.MiddleName = middleName;
-            newUser.Nickname = nickname;
+            User newUser = new User
+                               {
+                                   NetworkId = networkId,
+                                   LastName = lastName,
+                                   FirstName = firstName,
+                                   MiddleName = middleName,
+                                   Nickname = nickname
+                               };
             return newUser;
         }
         #endregion
