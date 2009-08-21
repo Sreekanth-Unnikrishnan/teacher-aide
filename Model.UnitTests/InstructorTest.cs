@@ -70,9 +70,8 @@ namespace Teacher_Aide.Model.UnitTests
         {
             Instructor_Accessor target = new Instructor_Accessor(); // TODO: Initialize to an appropriate value
             string expected = "Teacher1";
-            string actual;
             target.InstructorId = expected;
-            actual = target.InstructorId;
+            string actual = target.InstructorId;
             Assert.AreEqual(expected, actual);
         }
     }

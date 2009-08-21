@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DataStructure = Teacher_Aide.Data.Structure;
 
 namespace Teacher_Aide.Model
 {
@@ -16,7 +17,10 @@ namespace Teacher_Aide.Model
         }
         #endregion
         #region Constructors
-        protected Instructor() : base() { }
+        protected Instructor() : base()
+        {
+            ((DataStructure.Users) UserData.Table.DataSet).Instructors.AddInstructorsRow(UserData, "");
+        }
         #endregion
     }
 }
