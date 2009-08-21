@@ -66,4 +66,15 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>robocopy "$(ProjectDir)bin\Debug" "$(SolutionDir)Data.Access\bin\Debug" "Teacher-Aide.Data.Access.Mock.dll"
+if errorlevel 4 goto BuildEventFailed
+if errorlevel 0 goto end
+:BuildEventFailed
+echo FILECOPY for $(ProjectName) FAILED
+exit 1
+:end
+echo FILECOPY for $(ProjectName) COMPLETED OK
+exit 0</PostBuildEvent>
+  </PropertyGroup>
 </Project>
