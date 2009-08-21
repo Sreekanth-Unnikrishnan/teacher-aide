@@ -1,5 +1,5 @@
-﻿using Teacher_Aide.Data.Access.Mock;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Teacher_Aide.Data.Access;
 using Teacher_Aide.Data.Structure;
 
 namespace Data.Access.Mock.UnitTests
@@ -14,24 +14,11 @@ namespace Data.Access.Mock.UnitTests
     public class UserDataTest
     {
 
-
-        private TestContext testContextInstance;
-
         /// <summary>
         ///Gets or sets the test context which provides
         ///information about and functionality for the current test run.
         ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
+        public TestContext TestContext { get; set; }
 
         #region Additional test attributes
         // 
@@ -70,7 +57,7 @@ namespace Data.Access.Mock.UnitTests
         [TestMethod()]
         public void GetUserTest()
         {
-            UserData target = new UserData();
+            IUserData target = Factory.GetIUserDataImplementation();
             int userId = 5;
             Users actual;
             actual = target.GetUser(userId);
@@ -92,9 +79,8 @@ namespace Data.Access.Mock.UnitTests
         [TestMethod()]
         public void GetUsersTest()
         {
-            UserData target = new UserData();
-            Users actual;
-            actual = target.GetUsers();
+            IUserData target = Factory.GetIUserDataImplementation();
+            Users actual = target.GetUsers();
             Assert.AreEqual(5, actual._Users.Count);
             for (int ii = 0; ii < 5; ii++)
                 Assert.AreEqual(ii + 1, actual._Users[ii].ta_user_id);
@@ -105,7 +91,7 @@ namespace Data.Access.Mock.UnitTests
         [TestMethod()]
         public void GetStudentsTest()
         {
-            UserData target = new UserData();
+            IUserData target = Factory.GetIUserDataImplementation();
             Users actual;
             actual = target.GetStudents();
             Assert.AreEqual(3, actual._Users.Count);
@@ -119,7 +105,7 @@ namespace Data.Access.Mock.UnitTests
         [TestMethod()]
         public void GetInstructorsTest()
         {
-            UserData target = new UserData();
+            IUserData target = Factory.GetIUserDataImplementation();
             Users actual;
             actual = target.GetInstructors();
             Assert.AreEqual(3, actual._Users.Count);
