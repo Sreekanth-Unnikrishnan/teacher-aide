@@ -1,18 +1,16 @@
 ﻿using Teacher_Aide.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 namespace Teacher_Aide.Model.UnitTests
 {
     
     
     /// <summary>
-    ///This is a test class for InstructorTest and is intended
-    ///to contain all InstructorTest Unit Tests
+    ///This is a test class for StudentTest and is intended
+    ///to contain all StudentTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class InstructorTest
+    public class StudentTest
     {
-
         /// <summary>
         ///Gets or sets the test context which provides
         ///information about and functionality for the current test run.
@@ -51,16 +49,15 @@ namespace Teacher_Aide.Model.UnitTests
 
 
         /// <summary>
-        ///A test for InstructorId
+        ///A test for StudentId
         ///</summary>
         [TestMethod()]
-        public void InstructorIdTest()
+        public void StudentIdTest()
         {
-            Instructor_Accessor target = new Instructor_Accessor(); // TODO: Initialize to an appropriate value
-            const string expected = "Teacher1";
-            target.InstructorId = expected;
-            Assert.IsNotNull(target.InstructorId);
-            Assert.AreEqual(expected, target.InstructorId);
+            Student_Accessor target = new Student_Accessor();
+            const string expected = "Student1";
+            target.StudentId = expected;
+            Assert.AreEqual(expected, target.StudentId);
         }
     }
 }

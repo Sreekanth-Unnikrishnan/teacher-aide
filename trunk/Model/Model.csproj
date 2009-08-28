@@ -50,6 +50,7 @@
     <Compile Include="Assembly.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Instructor.cs" />
+    <Compile Include="Student.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
